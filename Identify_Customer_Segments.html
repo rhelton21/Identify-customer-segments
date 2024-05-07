@@ -23151,12 +23151,6 @@ Shape after scaling: (191652, 64)
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="c1"># Assume &#39;customer_predictions&#39; is already generated as follows:</span>
-<span class="c1"># customer_predictions = model_pca_15.predict(customers_data_pca)</span>
-
-<span class="c1"># Generate cluster labels for the general population if not already provided</span>
-<span class="c1"># This step is hypothetical and depends on whether you need to predict or already have this data</span>
-<span class="c1"># general_population_clusters = model_pca_15.predict(general_population_data_pca)</span>
 
 <span class="c1"># Convert these cluster label arrays to Series for easier value counting and comparison</span>
 <span class="n">customer_props</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">customer_predictions</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -23262,12 +23256,7 @@ Difference: 0.1686
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[98]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assuming customer_data_pca is the PCA-transformed customer data</span>
-<span class="c1"># customer_clusters = kmeans.predict(customers_data_pca)  # Using &#39;customers_pca&#39; from your defined variables</span>
-<span class="c1"># customer_props = pd.Series(customer_clusters).value_counts(normalize=True)</span>
-<span class="c1"># general_props = pd.Series(general_population_clusters).value_counts(normalize=True)  # Use &#39;general_population_clusters&#39; as defined</span>
-
-<span class="c1"># Create comparative DataFrame</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create comparative DataFrame</span>
 <span class="n">comparative_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;Cluster&#39;</span><span class="p">:</span> <span class="n">customer_props</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
     <span class="s1">&#39;General Proportion&#39;</span><span class="p">:</span> <span class="n">general_props</span><span class="p">,</span>
